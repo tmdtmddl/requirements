@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Dongle&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* font-family: "Noto Sans", serif; */
+}
+
+ul {
+  list-style-type: none;
+}
+
+.non-user-home {
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+}
+
+.non-user-home .link {
+  margin-top: 20px;
+}
+
+.link {
+  color: inherit;
+  text-decoration: none;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  background-color: royalblue;
+  border-radius: 4px;
+  color: white;
+}
+
+@media screen and (hover: hover) {
+  .link:hover {
+    opacity: 0.8;
+  }
+  .link:active {
+    opacity: 0.5;
+    transform: scale(0.98);
+  }
+}
