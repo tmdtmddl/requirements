@@ -1,4 +1,10 @@
-import { useContext,createXontext } from 'react'
+import { useContext, createContext } from "react";
 
-export const projectContext
+export const projectContext = createContext({
+  projects: [],
+  setProjects: () => ({}),
+});
 
+const useProject = () => useContext(projectContext);
+
+export default useProject;

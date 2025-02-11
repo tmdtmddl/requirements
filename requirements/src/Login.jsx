@@ -11,17 +11,17 @@ const Login = () => {
   const navi = useNavigate();
 
   const onSubmit = () => {
-    //email ,password 검사
-    //user null에서 유저의 값으로 변경해줘야함
+    // email, password  검사
+    // user null에서 유저의 값으로 변경해줘야 함
     setUser({ email, password });
     alert("로그인되었습니다.");
     navi("/");
   };
+
   return (
-    <div>
+    <div className="login">
       <h1>Login</h1>
       <form
-        action=""
         onSubmit={(e) => {
           e.preventDefault();
           onSubmit();
@@ -45,7 +45,7 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button className="link">로그인 시작하기</button>
+        <button className="link">로그인/시작하기</button>
       </form>
     </div>
   );

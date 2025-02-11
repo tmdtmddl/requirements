@@ -1,7 +1,10 @@
+import { useParams } from "react-router-dom";
+
 const Project = () => {
+  const { projectId } = useParams();
   return (
     <div>
-      <h1>Project</h1>
+      <h1>Project: {projectId} </h1>
     </div>
   );
 };

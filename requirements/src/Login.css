@@ -15,7 +15,9 @@ button.link {
 .login form {
   display: flex;
   flex-direction: column;
+  row-gap: 10px;
 }
+
 .login form div {
   display: flex;
   flex-direction: column;
@@ -29,4 +31,13 @@ button.link {
 
 .login input {
   outline: none;
+  border-radius: 4px;
+  border: 1px solid lightgray;
+  height: 40px;
+  padding: 0 10px;
+}
+
+.login input:focus {
+  border-color: royalblue;
+  /* border-width: 2px; */
 }
