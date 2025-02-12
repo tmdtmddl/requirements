@@ -1,6 +1,6 @@
 import { v4 } from "uuid";
-import PropTypes from "prop-types";
-import { useState, useRef, useEffect } from "react";
+import PropTypes from "react";
+import { useState, useEffect, useRef } from "react";
 const RForm = ({
   setRequirements,
   requirements,
@@ -25,6 +25,7 @@ const RForm = ({
   );
   const [detail, setDetail] = useState(""); // 단순한 문자열밖에 없는 아이템은 이렇게 관리하면 펴함
   // 복합적인 값을 담고 잇는 아이템: 요구사항 객체로 관리
+
   const onChange = (e) => {
     const { name, value } = e.target;
     if (name === "details") {
@@ -55,6 +56,7 @@ const RForm = ({
       alert("상세내용을 입력해주세요.");
       return detailRef.current?.focus();
     }
+
     if (!isEditing) {
       setRequirements((prev) => [
         ...prev,
@@ -75,7 +77,11 @@ const RForm = ({
       if (index < 0) {
         return copy;
       }
+      copy[index] = requirement;
+      return copy;
     });
+    alert("수정되었습니다");
+    onCancel();
   };
   const onSubmit = (e) => {
     e.preventDefault(); //새로고침 방지
@@ -124,17 +130,19 @@ const RForm = ({
   };
 
   useEffect(() => {
-    console.log(v4);
+    console.log(v4());
     if (status) {
-      const focus = setTimeout(() => {
-        nameRef.current?.focus();
-      }, 300);
+      const focus = () =>
+        setTimeout(() => {
+          nameRef.current?.focus();
+        }, 300);
       focus();
       return () => {
         focus();
       };
     }
   }, [status]);
+
   return (
     <>
       <form onSubmit={onSubmit}>
@@ -196,14 +204,15 @@ const RForm = ({
     </>
   );
 };
+
 export default RForm;
+
 RForm.propTypes = {
   requirements: PropTypes.array,
   setRequirements: PropTypes.func,
-  onCancel: PropTypes.func,
 
   payload: PropTypes.object,
   isEditing: PropTypes.bool,
-
+  onCancel: PropTypes.func,
   status: PropTypes.bool,
 };

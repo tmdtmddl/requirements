@@ -1,25 +1,35 @@
-import { useState, useRef } from "react";
-import RForm from "./Requirement2/RForm";
+import { useState } from "react";
+import RItem from "./Requirement/RItem";
+import RForm from "./Requirement/RForm";
 const App = () => {
   const project = {
     title: "My First Project",
     id: "12341234123",
     requirements: [],
   };
-
-  // const [requirements, setRequirements ] = useState([])
   const [requirements, setRequirements] = useState([
     {
-      funcName: "",
-      funcPage: "",
-      details: [],
-      status: "",
-      id: "",
+      funcName: "sadsfsdf",
+      funcPage: "sadsfsdf",
+      id: "1",
+      status: "sadsfsdf",
+      details: ["ssdfsfsdf"],
+    },
+    {
+      funcName: "sadsfsdf",
+      funcPage: "sadsfsdf",
+      id: "2",
+      status: "sadsfsdf",
+      details: ["ssdfsfsdf"],
+    },
+    {
+      funcName: "sadsfsdf",
+      funcPage: "sadsfsdf",
+      id: "3",
+      status: "sadsfsdf",
+      details: ["ssdfsfsdf"],
     },
   ]);
-
-  // const [detail, setDetail] = useState(""); // 단순한 문자열밖에 없는 아이템은 이렇게 관리하면 펴함
-  // // 복합적인 값을 담고 잇는 아이템: 요구사항 객체로 관리
 
   const [isAdding, setIsAdding] = useState(false);
   const onCancel = () => setIsAdding(false);
@@ -38,24 +48,23 @@ const App = () => {
       <ul>
         {requirements.map((r, index) => {
           return (
-            <li key={r.id}>
-              {index + 1}. {r.funcName} - {r.funcPage} - {r.status}
-              <ol type="i">
-                {r.details.map((d, dIndex) => {
-                  return <li key={d}>{d}</li>;
-                })}
-              </ol>
-            </li>
+            <RItem
+              r={r}
+              index={index}
+              key={r.id}
+              requirements={requirements}
+              setRequirements={setRequirements}
+            />
           );
         })}
       </ul>
       {!isAdding ? (
-        <button onClick={onStart}>요구사항 추가</button>
+        <button onClick={onStart}>요구사항 추가하기</button>
       ) : (
         <RForm
+          requirements={requirements}
+          setRequirements={setRequirements}
           onCancel={onCancel}
-          requirements={requirement}
-          setRequirements={setRequirement}
           status={isAdding}
         />
       )}
