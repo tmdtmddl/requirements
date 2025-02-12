@@ -13,7 +13,7 @@ const RItem = ({r,index}) => {
   return{requirements.map((r, index) => {
     return (
       {
-        isEditing ?( <RForm>)
+        isEditing ?( )
       }
     );
   })}
