@@ -46,6 +46,7 @@ const StudentForm = ({
     }
 
     setStudents((prev) => {
+      //수정 로직
       let copy = [...prev];
       if (isEditing) {
         const index = students.findIndex((s) => s.email === payload.email);
