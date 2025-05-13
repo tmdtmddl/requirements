@@ -1,6 +1,6 @@
 import { useState } from "react";
-import RItem from "./Requirement/RItem";
-import RForm from "./Requirement/RForm";
+import RItem from "./Requirement2/RItem";
+import RForm from "./Requirement2/RForm";
 const App = () => {
   const project = {
     title: "My First Project",

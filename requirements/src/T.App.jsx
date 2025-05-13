@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 const App = () => {
   const project = {
     title: "My First Project",
@@ -129,7 +129,7 @@ const App = () => {
             <li key={r.id}>
               {index + 1}. {r.funcName} - {r.funcPage} - {r.status}
               <ol type="i">
-                {r.details.map((d, dIndex) => {
+                {r.details.map((d) => {
                   return <li key={d}>{d}</li>;
                 })}
               </ol>
